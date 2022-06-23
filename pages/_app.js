@@ -1,11 +1,9 @@
 // pages/_app.js
-import { ChakraProvider } from '@chakra-ui/react'
-
+import '../styles/reset.scss'
+import '../styles/base.scss'
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
       <Component {...pageProps} />
-    </ChakraProvider>
   )
 }
 

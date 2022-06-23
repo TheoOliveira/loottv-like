@@ -1,0 +1,24 @@
+.container {
+    display:flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+.searchInput {
+    border-radius: 5px;
+    background:#f1f1f1; 
+    border:1px solid #ccc;
+}
+.searchButton {
+    background-image: url('../../public/icons/search.png');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 30px 30px; 
+    background-position: center center;
+    float: left;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    padding: 16px;
+    border-radius: 5px;
+}

@@ -1,0 +1,17 @@
+.container {
+    display:flex;
+    flex-direction:column;
+    width: 10%;
+    border-right: 1px solid #ccc;
+height: 100vh;
+.sidebarContainer {
+    padding-left: 16px;
+    border-bottom: 1px solid #ccc;
+}
+}
+.sidebarMenu {
+    display:flex;
+    flex-direction: column;
+    float:left;
+    padding-bottom: 16px;
+}
