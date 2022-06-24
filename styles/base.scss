@@ -3,9 +3,11 @@ body {
    
     h1, h2, h3, h4{
         font-family: "Roboto-Medium", serif;
-       
+       letter-spacing: 4px;
     }
     p, span, a {
         font-family: "Roboto-Light", serif;
+        word-spacing: 3px;
+        letter-spacing: 1px;
     }
 }
