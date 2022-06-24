@@ -12,6 +12,7 @@ export default function VideoCard() {
       <div className={styles.channel}><span>Lorem, ipsum.</span></div>
       <div className={styles.textualFooterDetail}>
       <div className={styles.views}><span>200k</span></div>
+      <div className={styles.views}><span>&#8226;</span></div>
       <div className={styles.posted}><span>1 year ago</span></div>
       </div>
       </div>

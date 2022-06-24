@@ -38,6 +38,21 @@ const categories = [
     path: '/sports'
   }
 ]
+
+const footerLinks = [
+  {
+    label: 'Twitter',
+    path: ''
+  },
+  {
+    label: 'Contact',
+    path: '/contact'
+  },
+  {
+    label: 'Privacy',
+    path: '/privacy'
+  },
+]
 export default function Sidebar() {
   const [date, setDate] = useState(new Date());
   return (
@@ -59,7 +74,9 @@ export default function Sidebar() {
     </div>
     </div>
     <div className={styles.footerContainer}>
-
+      {footerLinks.map(item=> (
+      <Link href={item.path}><a>{item.label}</a></Link>
+      ))}
     </div>
     </div>
   )
