@@ -1,12 +1,31 @@
-.container{
-    background-color: #ccc;
-    float:right;
-    width:90%;
+@import '../../styles/colors.scss';
+
+.container {
+    background-color: $lightgrey;
+    float: right;
+    width: 90%;
     height: 100vh;
-    position:absolute;
-    right:0;
-    top:5%;
-    .innerContainer{
+    position: absolute;
+    right: 0;
+    top: 5%;
+    transition: margin-left .5s;
+
+
+    .innerContainer {
         padding: 16px;
+        display: flex;
+        flex: 1 1 100%;
+        flex-wrap: wrap;
+
+        .videoGrid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            grid-template-rows: auto;
+            grid-column-gap: 15px;
+            -moz-column-gap: 15px;
+            column-gap: 15px;
+            grid-row-gap: 15px;
+            row-gap: 15px;
+        }
     }
 }

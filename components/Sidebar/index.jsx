@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from './Sidebar.module.scss'
+import React, {useState} from 'react'
 import Link from 'next/link'
+import styles from './Sidebar.module.scss'
 
 const categories = [
   {
@@ -39,6 +39,7 @@ const categories = [
   }
 ]
 export default function Sidebar() {
+  const [date, setDate] = useState(new Date());
   return (
     <div className={styles.container}>
       <div className={styles.sidebarContainer}>
@@ -48,7 +49,7 @@ export default function Sidebar() {
       <span>Today</span> 
       <div className={styles.bar}></div>
       {/* TODO: Date Picker for check most watched based on calendar? */}
-      <p style={{fontSize: '11px', textTransform: 'uppercase'}}>
+      <p style={{fontSize: '11px', textTransform: 'uppercase', marginBlockStart: '1em', marginBlockEnd: '1em'}}>
         Featured Categories
       </p> 
       <div className={styles.sidebarMenu}>
