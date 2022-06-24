@@ -1,5 +1,6 @@
 @import '../../styles/colors.scss';
 @import '../../styles//colors.scss';
+
 .container {
     background-color: #f1f1f1;
     float: right;
@@ -7,24 +8,34 @@
     height: 100vh;
     top: 5%;
     margin-left: 180px;
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
 
 
     .innerContainer {
         padding: 16px;
-        display: flex;
-        flex: 1 1 100%;
-        flex-wrap: wrap;
+
         h2 {
             padding-left: 16px;
             font-size: 1em;
-            
+
+            @media (max-width: 500px) {
+                text-align: center;
+
+            }
         }
+
         .videoGrid {
             display: grid;
-            grid-template-columns: repeat(6, minmax(260px, 1fr));
-            grid-template-rows: auto;
-           grid-gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+            grid-gap: 15px;
+
+            @media (max-width:500px) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
         }
     }
 }
