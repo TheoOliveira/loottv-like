@@ -3,10 +3,21 @@
     flex-direction:column;
     width: 10%;
     border-right: 1px solid #ccc;
+    position:fixed;
+    top: 5%;
 height: 100vh;
 .sidebarContainer {
     padding-left: 16px;
     border-bottom: 1px solid #ccc;
+
+    .bar {
+        position: absolute;
+        left:0;
+        height:0px;
+        width: 100%;
+        border: 1px solid #ccc;
+        margin-top: 4px;
+    }
 }
 }
 .sidebarMenu {
@@ -14,4 +25,10 @@ height: 100vh;
     flex-direction: column;
     float:left;
     padding-bottom: 16px;
+    appearance: none;
+    a{
+        font-weight: bold;
+        padding-bottom: 8px;
+    }
+
 }

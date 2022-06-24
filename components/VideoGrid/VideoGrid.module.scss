@@ -1,0 +1,12 @@
+.container{
+    background-color: #ccc;
+    float:right;
+    width:90%;
+    height: 100vh;
+    position:absolute;
+    right:0;
+    top:5%;
+    .innerContainer{
+        padding: 16px;
+    }
+}

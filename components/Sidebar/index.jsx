@@ -1,56 +1,59 @@
 import React from 'react'
 import styles from './Sidebar.module.scss'
+import Link from 'next/link'
+
 const categories = [
   {
     label: 'Most Viewed',
-    path: ''
+    path: '/most-viewed'
   }, {
     label: 'Most Liked',
-    path: ''
+    path: '/most-liked'
   },
   {
     label: 'Music',
-    path: ''
+    path: '/music'
   },
   {
     label: 'Movies & Shows',
-    path: ''
+    path: '/moves-shows'
   },
   {
     label: 'Gaming',
-    path: ''
+    path: '/gaming'
   },
   {
     label: 'News',
-    path: ''
+    path: '/news'
   },
   {
     label: 'Learning',
-    path: ''
+    path: '/learning'
   }, {
     label: 'Fashion & Beauty',
-    path: ''
+    path: '/fashion'
   },
   {
     label: 'Sports',
-    path: ''
+    path: '/sports'
   }
 ]
 export default function Sidebar() {
   return (
     <div className={styles.container}>
       <div className={styles.sidebarContainer}>
-      <h2>
-        Time Machine
-      </h2>
-      <span>Today</span> 
-      {/* TODO: Date Picker for check most watched based on calendar? */}
       <h4>
+        Time Machine
+      </h4>
+      <span>Today</span> 
+      <div className={styles.bar}></div>
+      {/* TODO: Date Picker for check most watched based on calendar? */}
+      <p style={{fontSize: '11px', textTransform: 'uppercase'}}>
         Featured Categories
-      </h4> 
+      </p> 
       <div className={styles.sidebarMenu}>
     {categories.map(item=> (
-      <a href={item.path}>{item.label}</a>
+      <Link href={item.path}><a>{item.label}</a></Link>
     ))}
     </div>
     </div>

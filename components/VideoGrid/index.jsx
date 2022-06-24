@@ -1,7 +1,11 @@
 import React from 'react'
-
-export default function VideoCard() {
+import styles from './VideoGrid.module.scss'
+export default function VideoGrid() {
   return (
-    <div>VideoCard</div>
+    <div className={styles.container}>
+      <div className={styles.innerContainer}>
+      <h2>Today - Trending by Views</h2>
+      </div>
+    </div>
   )
 }
