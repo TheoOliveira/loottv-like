@@ -9,6 +9,8 @@ function MyApp({ Component, pageProps }) {
          <Head>
           <link rel="icon" href="/favicon.png" />
           <meta name="theme-color" content="#ffffff" />
+          <title>Dropzone TV</title>
+
         </Head>
       <Component {...pageProps} />
       </>

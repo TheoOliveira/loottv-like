@@ -1,20 +1,29 @@
 .container {
     display:flex;
-    gap: 8px;
     justify-content: flex-end;
     padding-right: 16px;
+}
+.innerContainer {
+    display:flex;
+    border-radius: 5px;
+    border-left: 1px solid rgba(3,3,3,.12);
+    border-bottom: 1px solid rgba(3,3,3,.12);
+    border-top: 1px solid rgba(3,3,3,.12);
 }
 .searchInput {
     width: 300px;
     border-radius: 5px;
+    border: none;
+    outline: none;
+    font-weight: 500;
     background:#f1f1f1; 
-    border:1px solid #ccc;
+    padding-left: 16px;
 }
 .searchButton {
     background-image: url('../../public/icons/search.png');
-    background-color: transparent;
+    background-color: red;
     background-repeat: no-repeat;
-    background-size: 30px 30px; 
+    background-size: 20px 20px; 
     background-position: center center;
     float: left;
     width: 30px;
@@ -22,5 +31,5 @@
     border: none;
     cursor: pointer;
     padding: 16px;
-    border-radius: 5px;
+    border-radius: 0 5px 5px 0;
 }
