@@ -42,7 +42,7 @@ const categories = [
 const footerLinks = [
   {
     label: 'Twitter',
-    path: ''
+    path: '/'
   },
   {
     label: 'Contact',
@@ -68,14 +68,14 @@ export default function Sidebar() {
         Featured Categories
       </p> 
       <div className={styles.sidebarMenu}>
-    {categories.map(item=> (
-      <Link href={item.path}><a>{item.label}</a></Link>
+    {categories.map((item, i)=> (
+      <Link key={i}href={item.path}><a>{item.label}</a></Link>
     ))}
     </div>
     </div>
     <div className={styles.footerContainer}>
-      {footerLinks.map(item=> (
-      <Link href={item.path}><a>{item.label}</a></Link>
+      {footerLinks.map((item, i)=> (
+      <Link key={i} href={item.path}><a>{item.label}</a></Link>
       ))}
     </div>
     </div>
