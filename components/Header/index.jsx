@@ -17,9 +17,7 @@ export default function Header() {
   function closeSidebar() {
     setIsOpen(false)
     let w = window.innerWidth;
-    console.log(w)
     if (w >= 800) {
-      console.log(w)
       const sidebar = document.querySelector('.Sidebar_container__mO_GZ').style.width = "10%"
       const grid = document.querySelector('.VideoGrid_container__5Eqyd').style.width = "90%"
     }else {
