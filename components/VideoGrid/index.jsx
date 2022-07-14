@@ -2,19 +2,24 @@ import React, {useEffect, useState} from 'react'
 import VideoCard from '../VideoCard'
 import styles from './VideoGrid.module.scss'
 import {getLatestVideos} from "../../api/getVideos";
+import orderVideo from "../../utils/orderVideo"
 /* 
-* * 1) pegar api e jogar aqui
 * * 2) ter busca no app
 * * 3) abrir página do video e ser possivel assistir 
 * * 4) rotas para todas as categorias
 * * 5)  puxar tudo do db
 */
+
 export default function VideoGrid() {
   const [resposta, setResposta] = useState([])
 
 
    useEffect(() => {
-getLatestVideos().then(item => setResposta(item))
+getLatestVideos().then(item => {
+  let orderItem = orderVideo(item)
+  setResposta(orderItem)
+})
+console.log(resposta)
   }, [resposta.length > 1])
   
   return (
@@ -25,12 +30,13 @@ getLatestVideos().then(item => setResposta(item))
       
     {resposta.map((item, i)=> (
       
-    <VideoCard  key={i} channelId={item.channelId}
+    <VideoCard  key={i}
+    rank={i}
      channelName={item.channelTitle} 
      publishTime={item.publishTime} 
      title={item.title} 
      thumbnails={item.thumbnails.default.url}
-     viewCount={item.thumbnails.viewCount}
+     viewCount={Number(item.thumbnails.viewCount).toLocaleString("en-US")}
      />
     ))}
 

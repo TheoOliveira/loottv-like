@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
 import styles from './VideoCard.module.scss'
-export default function VideoCard({videoId, channelId, channelName, viewCount, publishTime, thumbnails, title }) {
+export default function VideoCard({ rank, channelId, channelName, viewCount, publishTime, thumbnails, title }) {
   return (
     <div className={styles.container}>
       <img src={thumbnails}  />
       <div className={styles.details}>
-      <div className={styles.rank}><span>1</span></div>
+      <div className={styles.rank}><span>{rank +1}</span></div>
       <div className={styles.textualDetail}>
       <div className={styles.title}><p>{title}</p></div>
       <div className={styles.channel}><span>{channelName}</span></div>

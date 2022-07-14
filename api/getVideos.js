@@ -1,8 +1,9 @@
 import {db} from "./firebase";
-import {  collection, getDocs} from "firebase/firestore"
+import {  collection, getDocs, query, limit, orderBy} from "firebase/firestore"
 export const getLatestVideos = async function lateVideos(){
-    const data = await getDocs(collection(db, "lastVideos"));
-    const res = data.docs.map(doc => doc.data())
-    console.log(res)
+    const dataRef =  collection(db, "lastVideos");
+    const dataQuery = query(dataRef);
+    const dataSnap =  await getDocs(dataQuery)
+    const res = dataSnap.docs.map(doc => doc.data())
     return res;
 }
