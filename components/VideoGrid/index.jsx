@@ -3,6 +3,7 @@ import VideoCard from '../VideoCard'
 import styles from './VideoGrid.module.scss'
 import {getLatestVideos} from "../../api/getVideos";
 import orderVideo from "../../utils/orderVideo"
+import truncate from "../../utils/truncate"
 /* 
 * * 2) ter busca no app
 * * 3) abrir página do video e ser possivel assistir 
@@ -34,9 +35,9 @@ console.log(resposta)
     rank={i}
      channelName={item.channelTitle} 
      publishTime={item.publishTime} 
-     title={item.title} 
-     thumbnails={item.thumbnails.default.url}
-     viewCount={Number(item.thumbnails.viewCount).toLocaleString("en-US")}
+     title={truncate(item.title, 35)} 
+     thumbnails={item.thumbnails.high.url}
+     viewCount={Number(item.viewCount).toLocaleString("en-US")}
      />
     ))}
 

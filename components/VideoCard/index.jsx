@@ -4,7 +4,7 @@ import styles from './VideoCard.module.scss'
 export default function VideoCard({ rank, channelId, channelName, viewCount, publishTime, thumbnails, title }) {
   return (
     <div className={styles.container}>
-      <img src={thumbnails}  />
+      <img src={thumbnails} width="250" height="180" />
       <div className={styles.details}>
       <div className={styles.rank}><span>{rank +1}</span></div>
       <div className={styles.textualDetail}>
@@ -13,7 +13,7 @@ export default function VideoCard({ rank, channelId, channelName, viewCount, pub
       <div className={styles.textualFooterDetail}>
       <div className={styles.views}><span>{viewCount}</span></div>
       <div className={styles.views}><span>&#8226;</span></div>
-      <div className={styles.posted}><span>{publishTime}</span></div>
+      <div className={styles.posted}><span>{new Date(publishTime).toLocaleDateString()}</span></div>
       </div>
       </div>
       </div>
