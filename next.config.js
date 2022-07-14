@@ -4,7 +4,7 @@
  const nextConfig = {
     /* config options here */
     images: {
-        domains: ['source.unsplash.com']
+        domains: ['i.ytimg.com']
     }
   }
   
