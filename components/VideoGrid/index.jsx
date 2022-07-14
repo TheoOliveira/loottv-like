@@ -4,6 +4,7 @@ import styles from './VideoGrid.module.scss'
 import {getLatestVideos} from "../../api/getVideos";
 import orderVideo from "../../utils/orderVideo"
 import truncate from "../../utils/truncate"
+import formatView from "../../utils/formatView"
 /* 
 * * 2) ter busca no app
 * * 3) abrir página do video e ser possivel assistir 
@@ -18,6 +19,7 @@ export default function VideoGrid() {
    useEffect(() => {
 getLatestVideos().then(item => {
   let orderItem = orderVideo(item)
+  console.log(orderItem)
   setResposta(orderItem)
 })
 console.log(resposta)
@@ -36,8 +38,8 @@ console.log(resposta)
      channelName={item.channelTitle} 
      publishTime={item.publishTime} 
      title={truncate(item.title, 35)} 
-     thumbnails={item.thumbnails.high.url}
-     viewCount={Number(item.viewCount).toLocaleString("en-US")}
+     thumbnails={item.thumbnails.high.url }
+     viewCount={formatView(item.viewCount)}
      />
     ))}
 

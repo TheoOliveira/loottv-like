@@ -11,14 +11,16 @@
         .rank {
             position:relative;
             background-color: $red;
-            width: 32px;
-            height: 32px;
+            min-width: 40px;
+            min-height: 40px;
             border-radius: 50%;
             color: $white;
             span {
+                display: block;
                 position:absolute;
-                top: 20%;
-                left:35%;
+                z-index:1;
+                top: 25%;
+                left:38%;
                 right: 35%;
                 font-weight: bold;
             }

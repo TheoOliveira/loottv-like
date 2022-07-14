@@ -4,7 +4,7 @@ import styles from './VideoCard.module.scss'
 export default function VideoCard({ rank, channelId, channelName, viewCount, publishTime, thumbnails, title }) {
   return (
     <div className={styles.container}>
-      <img src={thumbnails} width="250" height="180" />
+      <img src={thumbnails} width="263" height="147" />
       <div className={styles.details}>
       <div className={styles.rank}><span>{rank +1}</span></div>
       <div className={styles.textualDetail}>
