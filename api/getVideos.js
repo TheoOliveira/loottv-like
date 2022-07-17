@@ -5,5 +5,6 @@ export const getLatestVideos = async function lateVideos(){
     const dataQuery = query(dataRef);
     const dataSnap =  await getDocs(dataQuery)
     const res = dataSnap.docs.map(doc => doc.data())
+    console.log(res)
     return res;
 }

@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import VideoCard from '../VideoCard'
 import styles from './VideoGrid.module.scss'
-import {getLatestVideos} from "../../api/getVideos";
+import { getLatestVideos } from "../../api/getVideos";
 import orderVideo from "../../utils/orderVideo"
 import truncate from "../../utils/truncate"
 import formatView from "../../utils/formatView"
@@ -16,40 +16,43 @@ import VideoEmbed from '../VideoEmbed';
 
 export default function VideoGrid() {
   const [resposta, setResposta] = useState([])
- const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [currentVideo, setCurrentVideo] = useState({
+    videoId: "",
+    isSetOpen: false
+  })
 
-   useEffect(() => {
-getLatestVideos().then(item => {
-  let orderItem = orderVideo(item)
-  setResposta(orderItem)
-})
-console.log(resposta)
+  useEffect(() => {
+    getLatestVideos().then(item => {
+      let orderItem = orderVideo(item)
+      setResposta(orderItem)
+    })
+
   }, [resposta.length > 1])
-  
+
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
-      <h2>Today - Trending by Views</h2>
-      <div className={styles.videoGrid} >
-      
-    {resposta.map((item, i)=> (
-      <>
-    <VideoCard  key={i}
-    rank={i}
-     channelName={item.channelTitle} 
-     publishTime={item.publishTime} 
-     title={truncate(item.title, 35)} 
-     thumbnails={item.thumbnails.medium.url }
-     viewCount={formatView(item.viewCount)}
-     />
-     {isOpen && <VideoModal>
-        <VideoEmbed  embedId={item.videoId} />
-      </VideoModal>}
-      </>
-    ))}
+        <h2>Today - Trending by Views</h2>
+        <div className={styles.videoGrid} >
 
-      </div>
-      
+          {resposta.map((item, i) => (
+            <>
+              <VideoCard key={i}
+                rank={i}
+                channelName={item.channelTitle}
+                publishTime={item.publishTime}
+                title={truncate(item.title, 35)}
+                thumbnails={item.thumbnails.medium.url}
+                viewCount={formatView(item.viewCount)}
+               handleShow={()=> setCurrentVideo(item.videoId, setIsOpen(true))}
+              />
+            </>
+          ))}
+        </div>
+        {isOpen && <VideoModal setIsOpen={setIsOpen}>
+          <VideoEmbed embedId={currentVideo} />
+        </VideoModal>}
       </div>
     </div>
   )

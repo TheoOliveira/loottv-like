@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import React from 'react'
 import styles from './VideoCard.module.scss'
-export default function VideoCard({ rank, channelId, channelName, viewCount, publishTime, thumbnails, title }) {
+export default function VideoCard({ handleShow, rank,  videoId, channelName, viewCount, publishTime, thumbnails, title }) {
+  
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={() => handleShow(videoId, true)}>
       <img src={thumbnails} width="263" height="147" />
       <div className={styles.details}>
       <div className={styles.rank}><span>{rank +1}</span></div>
