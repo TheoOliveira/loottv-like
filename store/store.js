@@ -1,6 +1,8 @@
 import  {createState, useState} from '@hookstate/core'
 
 const globalState = createState({
+            defaultDateRange: "",
+            day: "",
             topViews: {},
             topLiked: {},
             topMusic: {},
@@ -16,8 +18,15 @@ const globalState = createState({
 
 export default function useGlobalState(){
     const state = useState(globalState)
-
+    console.log(state.day.get())
     return ({
+
+        get getDay(){
+            return state.day.get()
+        },
+        get getDefaultDateRange(){
+            return state.defaultDateRange.get()
+        },
         get getTopViews(){
             return state.topViews.get()
         },
@@ -44,6 +53,12 @@ export default function useGlobalState(){
         },
         get getTopSports(){
             return state.topSports.get()
+        },
+        setDefaultDateRange(value){
+            state.defaultDateRange.set(value)
+        },
+        setDay(value){
+            state.day.set(value)
         },
         setTopViews(object){
             state.topViews.set(object)

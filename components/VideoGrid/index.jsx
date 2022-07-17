@@ -14,7 +14,7 @@ import VideoEmbed from '../VideoEmbed';
 * * 5)  puxar tudo do db
 */
 
-export default function VideoGrid() {
+export default function VideoGrid({dateRange, category}) {
   const [resposta, setResposta] = useState([])
   const [isOpen, setIsOpen] = useState(false)
   const [currentVideo, setCurrentVideo] = useState({
