@@ -5,6 +5,8 @@ import {getLatestVideos} from "../../api/getVideos";
 import orderVideo from "../../utils/orderVideo"
 import truncate from "../../utils/truncate"
 import formatView from "../../utils/formatView"
+import VideoModal from '../VideoModal';
+import VideoEmbed from '../VideoEmbed';
 /* 
 * * 2) ter busca no app
 * * 3) abrir página do video e ser possivel assistir 
@@ -14,12 +16,11 @@ import formatView from "../../utils/formatView"
 
 export default function VideoGrid() {
   const [resposta, setResposta] = useState([])
-
+ const [isOpen, setIsOpen] = useState(false)
 
    useEffect(() => {
 getLatestVideos().then(item => {
   let orderItem = orderVideo(item)
-  console.log(orderItem)
   setResposta(orderItem)
 })
 console.log(resposta)
@@ -32,18 +33,23 @@ console.log(resposta)
       <div className={styles.videoGrid} >
       
     {resposta.map((item, i)=> (
-      
+      <>
     <VideoCard  key={i}
     rank={i}
      channelName={item.channelTitle} 
      publishTime={item.publishTime} 
      title={truncate(item.title, 35)} 
-     thumbnails={item.thumbnails.high.url }
+     thumbnails={item.thumbnails.medium.url }
      viewCount={formatView(item.viewCount)}
      />
+     {isOpen && <VideoModal>
+        <VideoEmbed  embedId={item.videoId} />
+      </VideoModal>}
+      </>
     ))}
 
       </div>
+      
       </div>
     </div>
   )
