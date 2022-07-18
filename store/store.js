@@ -1,7 +1,9 @@
 import  {createState, useState} from '@hookstate/core'
-
+import {
+    checkYesterday
+} from "../utils/checkPeriods"
 const globalState = createState({
-            defaultDateRange: "",
+            defaultDateRange: checkYesterday( ),
             day: "",
             topViews: {},
             topLiked: {},
@@ -18,7 +20,7 @@ const globalState = createState({
 
 export default function useGlobalState(){
     const state = useState(globalState)
-    console.log(state.day.get())
+    console.log(state.defaultDateRange.get())
     return ({
 
         get getDay(){

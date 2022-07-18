@@ -14,7 +14,7 @@ export default function VideoCard({ handleShow, rank,  videoId, channelName, vie
       <div className={styles.textualFooterDetail}>
       <div className={styles.views}><span>{viewCount}</span></div>
       <div className={styles.views}><span>&#8226;</span></div>
-      <div className={styles.posted}><span>{new Date(publishTime).toLocaleDateString()}</span></div>
+      <div className={styles.posted}><span>{new Date(publishTime.seconds*1000).toLocaleDateString("en-US")}</span></div>
       </div>
       </div>
       </div>
